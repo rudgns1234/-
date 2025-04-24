@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>스마트 안내음</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .container {
+      background-color: #ffff66;
+      padding: 30px;
+      margin: 30px;
+      border: 2px dashed #00aaff;
+      border-radius: 20px;
+    }
+    .highlight {
+      background-color: #0066cc;
+      color: yellow;
+      padding: 0 10px;
+      border-radius: 10px;
+    }
+    .character {
+      width: 120px;
+      margin: 20px auto;
+      display: block;
+    }
+    .button {
+      font-size: 2rem;
+      padding: 20px 40px;
+      margin: 20px;
+      border: none;
+      border-radius: 20px;
+      background-color: #ffc800;
+      color: black;
+      cursor: pointer;
+    }
+    .small-button {
+      font-size: 1rem;
+      padding: 8px 15px;
+      margin: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1><span class="highlight">스마트 안내음</span> 에 오신 걸 환영합니다!</h1>
+
+  <div class="container">
+    <img src="https://raw.githubusercontent.com/openai/gpt-4-assets/main/assistant-kiosk/character_no_bg.png" alt="캐릭터" class="character" />
+    <p>어르신들도 <span class="highlight">쉽고 편하게</span> 이용할 수 있는 키오스크 안내 웹사이트입니다.<br>
+    이 웹사이트는 <strong>Team Rush</strong> 발명입니다.<br>
+    버튼을 누르면 설명이 시작돼요!</p>
+    <button class="small-button" onclick="readIntro()">글 읽어주기</button>
+  </div>
+
+  <button class="button" onclick="goToStep(1)">시작하기</button>
+
+  <script>
+    function readIntro() {
+      const text = "어르신들도 쉽고 편하게 이용할 수 있는 키오스크 안내 웹사이트입니다. 이 웹사이트는 Team Rush 발명입니다. 버튼을 누르면 설명이 시작돼요.";
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "ko-KR";
+      speechSynthesis.speak(utterance);
+    }
+
+    function goToStep(step) {
+      alert("예시로 1단계로 이동합니다.");
+      // 여기엔 실제 단계 이동 스크립트가 들어갑니다.
+    }
+  </script>
+</body>
+</html>
